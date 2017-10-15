@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ethereum-bridge": "^0.5.4-alpha-1",
     "moment": "^2.18.1",
     "zeppelin-solidity": "^1.2.0"
   },

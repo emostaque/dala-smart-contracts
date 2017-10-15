@@ -1,6 +1,6 @@
 var AllocatedCrowdsale = artifacts.require('./AllocatedCrowdsale.sol');
 var CentrallyIssuedToken = artifacts.require('./CentrallyIssuedToken.sol');
-var FlatPricing = artifacts.require('./FlatPricing.sol');
+var ForexPricing = artifacts.require('./ForexPricing.sol');
 var MultiSigWallet = artifacts.require('./MultiSigWallet.sol');
 var DefaultFinalizeAgent = artifacts.require('./DefaultFinalizeAgent.sol');
 const assertJump = require('./helpers/assertJump');
@@ -32,7 +32,7 @@ contract('AllocatedCrowdsale', function (accounts) {
     let pricing;
     let finalizer;
     beforeEach(function () {
-        return Promise.resolve().then(() => FlatPricing.new(weiPerToken))
+        return Promise.resolve().then(() => ForexPricing.new())
             .then(_pricing => {
                 pricing = _pricing;
             }).then(() => MultiSigWallet.new([accounts[1], accounts[2]], 2))
@@ -106,4 +106,8 @@ contract('AllocatedCrowdsale', function (accounts) {
                 return crowdsale.sendTransaction({ from: accounts[1], value: amount });
             }).then(() => assert.fail('should not be allowed')).catch(assertJump);
     });
+
+    // it('', function() {
+    //     return crowdsale
+    // })
 });

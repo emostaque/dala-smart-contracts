@@ -1,12 +1,11 @@
-var FlatPricing = artifacts.require('./FlatPricing.sol');
+var ForexPricing = artifacts.require('./ForexPricing.sol');
 
 module.exports = function (deployer, network) {
   if (network == 'development') {
-    var weiPerToken = 356666666666667;
-    deployer.deploy(FlatPricing, weiPerToken);
+    deployer.deploy(ForexPricing);
   }
   if (network == 'ropsten') {
-    var weiPerToken = 356666666666667;
-    deployer.deploy(FlatPricing, weiPerToken);
+
+    deployer.deploy(ForexPricing);
   }
 };
